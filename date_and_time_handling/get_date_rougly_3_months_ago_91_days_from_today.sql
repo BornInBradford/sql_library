@@ -1,0 +1,8 @@
+/*
+** CREATED BY: ALEX NEWSHAM
+** CREATED ON: 12/07/2018
+** PURPOSE: GET THE DATE ROUGHLY 3 MONTHS AGO FROM TODAY (i.e. 91 days)
+*/
+
+-- THE DATE 12 WEEKS AGO FROM TODAY
+SELECT 'The date roughly 3 months ago from today' AS DateType, CAST(DATEADD(DAY,0,GETDATE())-91 AS DATE) as Date3MonthsAgo
