@@ -8,12 +8,18 @@
 
 declare @t1 table (bandId int, musicianId int, Instrument varchar(30))
 
-insert into @t1 values(1, 90, 'Piano'),(1, 91, 'Double Bass'),(2, 92, 'Saxophone'),(2, 92, 'Vocals'),(2, 93, 'Rythm Guitar'),(3, 98, 'Ukelele'),(4, 99, 'Fiddle'),(4, 22, 'Bodhran'),(4, 120, 'Acoustic Guitar'),(4, 121, 'Tin Whistle'),(4,121, 'Vocal')
+-- create a synthetic dataset
+insert into @t1 values(1, 90, 'Piano'),(1, 91, 'Double Bass')
+                     ,(2, 92, 'Saxophone'),(2, 92, 'Vocals'),(2, 93, 'Rythm Guitar')
+					 ,(3, 98, 'Ukelele')
+					 ,(4, 99, 'Fiddle'),(4, 22, 'Bodhran'),(4, 120, 'Acoustic Guitar'),(4, 121, 'Tin Whistle'),(4,121, 'Vocal')
 
-
+-- sense check @t1 table population
 select *
 from @t1
 
+
+-- return concatenated strings by bandId and musicianId
 select distinct bandId, musicianId, 
 				STUFF( -- the stuff function is used to remove the the leading comma and space
 				       -- then it (using .value('.', 'nvarchar(max))) removes a substring and inserts a replacement string (',' + Insturment value, i.e. a leading comma and the the TypeOfExclusion value)
