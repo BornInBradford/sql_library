@@ -1,3 +1,2 @@
-* linguist-vendored
 *.sql linguist-vendored=false
 *.sql text diff=TSQL
